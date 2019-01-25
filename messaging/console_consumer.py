@@ -18,6 +18,7 @@ class ConsoleConsumer(threading.Thread):
     def __init__(self, conn, queue_name):
         """Creates console consumer instance with references to connection
         for channels creating
+
         :param conn - pika connection
         :param queue_name - queue name to consume from
 
@@ -39,6 +40,7 @@ class ConsoleConsumer(threading.Thread):
             no_ack=True,
             shutdown_current=False):
         """Configure current channel consuming
+
         :param show_method - does it need to show a method
         :param show_properties - does it need to show properties
         :param show_body - does it need to show a body
@@ -66,7 +68,6 @@ class ConsoleConsumer(threading.Thread):
         super(ConsoleConsumer, self).start()
 
     def stop(self):
-        """Stops and reset current channel
-        """
+        """Stops and reset current channel"""
         self.current_channel.close()
         self.current_channel = None

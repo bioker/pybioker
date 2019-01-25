@@ -2,6 +2,7 @@ import pika
 
 def pika_conn(host, user='guest', password='guest'):
     """Creates pika BlockingConnection with passed parameters
+
     :param host - amqp server hostname
     :param user - username (default 'guest')
     :param password - password (default 'guest')
@@ -9,6 +10,8 @@ def pika_conn(host, user='guest', password='guest'):
     :type host: str
     :type user: str
     :type password: str
+
+    :rtype: pika.BlockingConnection
     """
     credentials = pika.credentials.PlainCredentials(
             username=user,
@@ -20,6 +23,7 @@ def pika_conn(host, user='guest', password='guest'):
 
 def publish(conn, queue_name, message_body, channel=None):
     """Publish single message to queue
+
     :param conn - pika connection
     :param queue_name - queue name to publish
     :param message_body - message body

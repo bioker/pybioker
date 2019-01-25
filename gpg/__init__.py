@@ -2,8 +2,12 @@ import subprocess as s
 
 def rgpgf(path):
     """Reads GPG encrypted file (armored)
-    Parameters:
-    path - file path to read content from
+
+    :param path - file path to read content from
+
+    :type path: str
+
+    :rtype: str
     """
     with open(path, 'r') as f:
         encrypted = f.read().encode('utf8')
@@ -17,9 +21,12 @@ def rgpgf(path):
 
 def wgpgf(content, path):
     """Write encrypted by GPG content (armored) to file
-    Parameters:
-    content - content to encrypt and save
-    path - file path to write content to
+
+    :param content - content to encrypt and save
+    :param path - file path to write content to
+
+    :type content: str
+    :type path: str
     """
     encrypted = (s
             .run(

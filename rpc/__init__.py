@@ -5,13 +5,19 @@ from sys import path
 def grpc_proto_gen(path_to_find, output_path, exclude='build'):
     """Generate Python gRPC files from proto files founded 
     in specified directory
-    Parameters:
-    path_to_find - path where to find proto files 
+
+    :param path_to_find - path where to find proto files 
         (recursive search with find command)
-    output_path - path where generated python source files will be placed
+    :param output_path - path where generated python source files will be placed
         (also this path will be added to sys.path to be able import 
         generated files)
-    exclude - grep pattern to exclude proto files
+    :param exclude - grep pattern to exclude proto files
+
+    :type path_to_find: str
+    :type output_path: str
+    :type exclude: str
+    
+    :rtype: subprocess.CompletedProcess
     """
     pre_result = sub.run(['find', path_to_find, '-name', '*.proto'], 
         stdout=sub.PIPE)
