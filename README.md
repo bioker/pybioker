@@ -6,6 +6,7 @@
 sudo pip3 install \
     ipython \
     requests \
+    pymysql \
     sqlalchemy \
     numpy \
     pandas \
