@@ -13,6 +13,7 @@ sudo pip3 install \
     matplotlib \
     selenium \
     pika \
+    pyrabbit \
     redis \
     grpcio \
     grpcio-tools

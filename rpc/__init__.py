@@ -29,7 +29,7 @@ def grpc_proto_gen(path_to_find, output_path, exclude='build'):
                 .strip()
                 .split('\n'))
     dirs = set(map(lambda f: f[:f.rfind('/')], files))
-    output = sub.run(['python', '-m', 'grpc_tools.protoc'] 
+    output = sub.run(['python3', '-m', 'grpc_tools.protoc'] 
             + list(map(lambda d: '-I' + d, dirs))
             + ['--python_out', output_path]
             + ['--grpc_python_out', output_path]
