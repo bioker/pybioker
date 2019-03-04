@@ -49,3 +49,21 @@ def session(engine):
     :rtype: sqlalchemy.orm.Session
     """
     return Session(engine)
+
+def pd_read_sql_file(engine, read_sql_func, path):
+    """Creates SQLAlchemy session
+
+    :param engine - SQLAlchemy engine
+    :param read_sql_func - Pandas read_sql function
+    :param path - path to file
+
+    :type engine: sqlalchemy.engine.Engine
+    :type read_sql_func: function
+    :type path: str
+
+    :rtype: pandas.core.frame.DataFrame
+    """
+    sql = ""
+    with open(path, 'r') as f:
+        sql = f.read()
+    return read_sql_func(sql, engine)
