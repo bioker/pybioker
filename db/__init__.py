@@ -2,6 +2,19 @@ from sqlalchemy.ext.automap import automap_base as ab
 from sqlalchemy import create_engine as ce, MetaData
 from sqlalchemy.orm import Session
 
+def create_mysql_url(user='root', pwd='', host='', port='', db=''):
+    """Creates SQLAlchemy engine URL
+
+    :type user: str
+    :type pwd: str
+    :type host: str
+    :type port: str
+    :type db: str
+
+    :rtype: str
+    """
+    return 'mysql+pymysql://{}:{}@{}:{}/{}'.format(user, pwd, host, port, db)
+
 def create_engine(url):
     """Creates SQLAlchemy engine by passed url
 
