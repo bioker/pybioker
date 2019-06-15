@@ -17,6 +17,7 @@ sudo pip3 install \
     selenium \
     pika \
     redis \
+    pymongo \
     grpcio \
     grpcio-tools
 ```
