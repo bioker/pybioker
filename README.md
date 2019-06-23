@@ -8,6 +8,7 @@ sudo pip3 install \
     requests \
     lxml \
     beautifulsoup4 \
+    jsonpath-ng \
     pymysql \
     sqlalchemy \
     numpy \
