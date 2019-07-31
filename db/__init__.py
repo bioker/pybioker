@@ -1,3 +1,4 @@
+from pandas import read_sql
 from sqlalchemy.ext.automap import automap_base as ab
 from sqlalchemy import create_engine as ce, MetaData
 from sqlalchemy.orm import Session
@@ -63,20 +64,35 @@ def session(engine):
     """
     return Session(engine)
 
-def pd_read_sql_file(engine, read_sql_func, path):
+def pd_read_sql_file(engine, path, params={}):
     """Creates SQLAlchemy session
 
     :param engine - SQLAlchemy engine
-    :param read_sql_func - Pandas read_sql function
     :param path - path to file
+    :param params - params to inject into query
 
     :type engine: sqlalchemy.engine.Engine
-    :type read_sql_func: function
     :type path: str
+    :type params: dict
 
     :rtype: pandas.core.frame.DataFrame
     """
     sql = ""
     with open(path, 'r') as f:
         sql = f.read()
-    return read_sql_func(sql, engine)
+    return pd_read_sql(engine, sql, params=params)
+
+def pd_read_sql(engine, sql, params={}):
+    """Creates SQLAlchemy session
+
+    :param engine - SQLAlchemy engine
+    :param sql - SQL query
+    :param params - params to inject into query
+
+    :type engine: sqlalchemy.engine.Engine
+    :type sql: str
+    :type params: dict
+
+    :rtype: pandas.core.frame.DataFrame
+    """
+    return read_sql(sql, engine, params=params)

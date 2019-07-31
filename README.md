@@ -3,7 +3,7 @@
 ## Prerequisites
 
 ```
-sudo pip3 install \
+pip3 install \
     ipython \
     requests \
     lxml \
@@ -20,5 +20,6 @@ sudo pip3 install \
     redis \
     pymongo \
     grpcio \
-    grpcio-tools
+    grpcio-tools \
+    --user
 ```
