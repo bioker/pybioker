@@ -2,9 +2,8 @@ import subprocess as sub
 from sys import path
 
 
-def grpc_proto_gen(path_to_find: str, output_path: str, exclude: str = 'build') -> sub.CompletedProcess:
-    """Generate Python gRPC files from proto files founded 
-    in specified directory
+def generate_from_proto(path_to_find: str, output_path: str, exclude: str = 'build') -> sub.CompletedProcess:
+    """Generate Python gRPC files from proto files found in specified directory
 
     :param path_to_find - path where to find proto files 
         (recursive search with find command)

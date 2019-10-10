@@ -38,3 +38,13 @@ def pd_read_sql_file(engine: sqlalchemy.engine.Engine, path: str, params: dict =
 
 def pd_read_sql(engine: sqlalchemy.engine.Engine, sql: str, params=None) -> pandas.core.frame.DataFrame:
     return read_sql(sql, engine, params=params)
+
+
+def get_tables(engine: sqlalchemy.engine.Engine):
+    meta = automap_meta(engine)
+    return meta.tables.keys()
+
+
+def get_columns(engine: sqlalchemy.engine.Engine, table_name: str):
+    meta = automap_meta(engine)
+    return list(map(lambda column: column.name, meta.tables[table_name].columns))
