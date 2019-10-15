@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='bioker-python-repl',
+    name='bioker',
     version='0.1.0',
     description='Python library for REPL oriented work',
     author='Viktor Vlasov',
