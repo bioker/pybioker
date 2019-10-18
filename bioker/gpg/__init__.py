@@ -1,4 +1,6 @@
 import subprocess as s
+from pathlib import Path
+from typing import Union, Dict
 
 
 def read_gpg_file(path: str) -> str:
@@ -15,3 +17,14 @@ def write_gpg_file(content: str, path: str):
                  .strip())
     with open(path, 'w') as f:
         f.write(encrypted)
+
+
+def read_gpg_dir(directory_path: str) -> Dict[str, Union[str, dict]]:
+    result = {}
+    dir_path = Path(directory_path)
+    for sub_path in dir_path.iterdir():
+        if sub_path.is_dir():
+            result[sub_path.name] = read_gpg_dir(str(sub_path))
+        elif sub_path.is_file():
+            result[sub_path.name] = read_gpg_file(str(sub_path))
+    return result
