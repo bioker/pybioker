@@ -6,7 +6,8 @@ from sqlalchemy.ext.automap import automap_base as ab
 from sqlalchemy.orm import Session
 
 
-def create_mysql_url(user: str = 'root', pwd: str = '', host: str = '', port: str = '', db: str = '') -> str:
+def create_mysql_url(user: str = 'root', pwd: str = '', host: str = 'mysql', 
+                     port: str = '3306', db: str = 'test') -> str:
     return 'mysql+pymysql://{}:{}@{}:{}/{}'.format(user, pwd, host, port, db)
 
 
