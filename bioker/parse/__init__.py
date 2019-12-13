@@ -2,14 +2,15 @@ import json
 
 from jsonpath_ng import parse
 
+from bioker.file import get_file_obj
+
 
 def json_path_file(json_path: str, file_path: str) -> list:
     """
     Evaluates jsonpath expression and apply it to a content in a file.
     Returns results as a list
     """
-    with open(file_path, 'r') as f:
-        return json_path_obj(json_path, json.load(f))
+    return json_path_obj(json_path, get_file_obj(file_path))
 
 
 def json_path_str(json_path: str, json_str: str) -> list:

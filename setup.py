@@ -6,5 +6,5 @@ setup(
     description='Python library for REPL oriented work',
     author='Viktor Vlasov',
     author_email='viktorvlasovsiberian@gmail.com',
-    install_requires=['requests', 'pandas', 'sqlalchemy', 'pika', 'redis'],
+    install_requires=['requests', 'pandas', 'sqlalchemy', 'pika', 'redis', 'kafka-python'],
     packages=find_packages())

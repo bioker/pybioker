@@ -1,3 +1,5 @@
+from typing import List
+
 import pandas
 import sqlalchemy
 from pandas import read_sql
@@ -6,7 +8,7 @@ from sqlalchemy.ext.automap import automap_base as ab
 from sqlalchemy.orm import Session
 
 
-def create_mysql_url(user: str = 'root', pwd: str = '', host: str = 'mysql', 
+def create_mysql_url(user: str = 'root', pwd: str = '', host: str = 'mysql',
                      port: str = '3306', db: str = 'test') -> str:
     return 'mysql+pymysql://{}:{}@{}:{}/{}'.format(user, pwd, host, port, db)
 
@@ -41,11 +43,11 @@ def pd_read_sql(engine: sqlalchemy.engine.Engine, sql: str, params=None) -> pand
     return read_sql(sql, engine, params=params)
 
 
-def get_tables(engine: sqlalchemy.engine.Engine):
+def get_tables(engine: sqlalchemy.engine.Engine) -> List[str]:
     meta = automap_meta(engine)
     return meta.tables.keys()
 
 
-def get_columns(engine: sqlalchemy.engine.Engine, table_name: str):
+def get_columns(engine: sqlalchemy.engine.Engine, table_name: str) -> List[str]:
     meta = automap_meta(engine)
     return list(map(lambda column: column.name, meta.tables[table_name].columns))
