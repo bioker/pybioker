@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='bioker',
+    name='pybioker',
     version='0.1.0',
-    description='Python library for REPL oriented work',
+    description='Personal Python Library',
     author='Viktor Vlasov',
     author_email='viktorvlasovsiberian@gmail.com',
-    install_requires=['requests', 'pandas', 'sqlalchemy', 'pika', 'redis', 'kafka-python'],
+    install_requires=['requests', 'pandas', 'sqlalchemy', 'pika', 'redis', 'kafka-python', 'elasticsearch'],
     packages=find_packages())
