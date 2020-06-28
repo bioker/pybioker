@@ -1,1 +1,1 @@
-python3.7 setup.py sdist
+python3 setup.py sdist
